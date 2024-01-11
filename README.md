@@ -22,13 +22,14 @@ local theme_lut = [
 ]
 ```
 
-3. Emit the `theme::reload` signal somewhere, passing the 
+3. Emit the `theme::reload` signal, passing the lookup table as a parameter.
 
+As an example:
 `awesome.emit_signal(theme::reload, theme_lut)`
 
 ## Other stuff
 ### How it works
-It adds a connection to the `theme::reload` signal within the constructors for every widget. Once this signal is received, the widget updates its own color 
+It adds a connection to the `theme::reload` signal within the constructors for every widget. Once this signal is received, the widget updates its own colors.
 
 ### Are there performance issues from adding so many new signals?
 No idea. I don't notice anything new added latency though, and the startup time when watching the awmtt output remains the same.
