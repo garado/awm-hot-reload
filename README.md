@@ -12,7 +12,7 @@ Library to enable hot reloading colorscheme within AwesomeWM. Originally from [m
 
 2. Create a lookup table mapping your **old colors** to your **new colors**
 
-It's easier to do this if you have a clean way to define your theme variables.
+It's easier to do this if you have a clean way to define your theme variables. Here's a simplified version from my config.
 
 ```lua
 -- Here's the old theme variables...
@@ -25,19 +25,11 @@ local mountain_theme = {
   primary_3 = #a79a87,
   primary_4 = #92826b,
   primary_5 = #7d6a4f,
-  primary_6 = #695942,
-  primary_7 = #554836,
-  primary_8 = #413729,
-  primary_9 = #393124,
   neutral_1 = #dedede,
   neutral_2 = #afafaf,
   neutral_3 = #808080,
   neutral_4 = #515151,
   neutral_5 = #222222,
-  neutral_6 = #1e1e1e,
-  neutral_8 = #141414,
-  neutral_9 = #0f0f0f,
-  neutral_7 = #191919,
 }
 
 --- and here's the new theme variables.
@@ -50,19 +42,11 @@ local nord_theme = {
   primary_3 = #92a9c7,
   primary_4 = #7895b9,
   primary_5 = #5e81ac,
-  primary_6 = #4f6c90,
-  primary_7 = #405875,
-  primary_8 = #314359,
-  primary_9 = #2b3b4f,
   neutral_1 = #e5e9f0,
   neutral_2 = #bec3cd,
   neutral_3 = #969daa,
   neutral_4 = #6e7787,
   neutral_5 = #465064,
-  neutral_6 = #3d4557,
-  neutral_7 = #333a4a,
-  neutral_8 = #292f3d,
-  neutral_9 = #1f242f,
 }
 
 -- Then you can construct the LUT like this.
@@ -75,19 +59,11 @@ local theme_lut = {
   mountain_theme.primary_3 = nord_theme.primary_3,
   mountain_theme.primary_4 = nord_theme.primary_4,
   mountain_theme.primary_5 = nord_theme.primary_5,
-  mountain_theme.primary_6 = nord_theme.primary_6,
-  mountain_theme.primary_7 = nord_theme.primary_7,
-  mountain_theme.primary_8 = nord_theme.primary_8,
-  mountain_theme.primary_9 = nord_theme.primary_9,
   mountain_theme.neutral_1 = nord_theme.neutral_1,
   mountain_theme.neutral_2 = nord_theme.neutral_2,
   mountain_theme.neutral_3 = nord_theme.neutral_3,
   mountain_theme.neutral_4 = nord_theme.neutral_4,
   mountain_theme.neutral_5 = nord_theme.neutral_5,
-  mountain_theme.neutral_6 = nord_theme.neutral_6,
-  mountain_theme.neutral_7 = nord_theme.neutral_7,
-  mountain_theme.neutral_8 = nord_theme.neutral_8,
-  mountain_theme.neutral_9 = nord_theme.neutral_9,
 }
 ```
 
