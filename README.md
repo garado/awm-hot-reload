@@ -10,16 +10,90 @@ Library to enable hot reloading colorscheme within AwesomeWM. Originally from [m
 
 2. Create a lookup table mapping your **old colors** to your **new colors**
 
-```lua
-# [Old color] = New color
+```
 local theme_lut = [
-  [beautiful.fg_color_0] = "#eceff4",
-  [beautiful.fg_color_1] = "#d8dee9",
-  [beautiful.bg_color_0] = "#2e3440",
-  [beautiful.bg_color_1] = "#3b4252",
-  [beautiful.bg_color_2] = "#434c5e",
-  [beautiful.bg_color_3] = "#4c566a",
+  [beautiful.old_fg_color] = new_fg_color,
+  [beautiful.old_bg_color] = new_bg_color,
 ]
+```
+
+It's easier to do this if you have a clean way to define your theme variables.
+
+```lua
+-- Here's the old theme...
+local mountain_theme = {
+  red       = #c49ea0,
+  green     = #89ab8a,
+  yellow    = #c4c19e,
+  primary_1 = #c3baae,
+  primary_2 = #bbb2a3,
+  primary_3 = #a79a87,
+  primary_4 = #92826b,
+  primary_5 = #7d6a4f,
+  primary_6 = #695942,
+  primary_7 = #554836,
+  primary_8 = #413729,
+  primary_9 = #393124,
+  neutral_1 = #dedede,
+  neutral_2 = #afafaf,
+  neutral_3 = #808080,
+  neutral_4 = #515151,
+  neutral_5 = #222222,
+  neutral_6 = #1e1e1e,
+  neutral_8 = #141414,
+  neutral_9 = #0f0f0f,
+  neutral_7 = #191919,
+}
+
+--- and here's the theme I want to apply.
+local nord_theme = {
+  red       = #bf616a,
+  green     = #a3be8c,
+  yellow    = #ebcb8b,
+  primary_1 = #b5c5d9,
+  primary_2 = #abbdd4,
+  primary_3 = #92a9c7,
+  primary_4 = #7895b9,
+  primary_5 = #5e81ac,
+  primary_6 = #4f6c90,
+  primary_7 = #405875,
+  primary_8 = #314359,
+  primary_9 = #2b3b4f,
+  neutral_1 = #e5e9f0,
+  neutral_2 = #bec3cd,
+  neutral_3 = #969daa,
+  neutral_4 = #6e7787,
+  neutral_5 = #465064,
+  neutral_6 = #3d4557,
+  neutral_7 = #333a4a,
+  neutral_8 = #292f3d,
+  neutral_9 = #1f242f,
+}
+
+-- Then you can just construct it like this.
+local theme_lut = {
+  mountain_theme.red       = nord_theme.red,
+  mountain_theme.green     = nord_theme.green,
+  mountain_theme.yellow    = nord_theme.yellow,
+  mountain_theme.primary_1 = nord_theme.primary_1,
+  mountain_theme.primary_2 = nord_theme.primary_2,
+  mountain_theme.primary_3 = nord_theme.primary_3,
+  mountain_theme.primary_4 = nord_theme.primary_4,
+  mountain_theme.primary_5 = nord_theme.primary_5,
+  mountain_theme.primary_6 = nord_theme.primary_6,
+  mountain_theme.primary_7 = nord_theme.primary_7,
+  mountain_theme.primary_8 = nord_theme.primary_8,
+  mountain_theme.primary_9 = nord_theme.primary_9,
+  mountain_theme.neutral_1 = nord_theme.neutral_1,
+  mountain_theme.neutral_2 = nord_theme.neutral_2,
+  mountain_theme.neutral_3 = nord_theme.neutral_3,
+  mountain_theme.neutral_4 = nord_theme.neutral_4,
+  mountain_theme.neutral_5 = nord_theme.neutral_5,
+  mountain_theme.neutral_6 = nord_theme.neutral_6,
+  mountain_theme.neutral_7 = nord_theme.neutral_7,
+  mountain_theme.neutral_8 = nord_theme.neutral_8,
+  mountain_theme.neutral_9 = nord_theme.neutral_9,
+}
 ```
 
 3. Emit the `theme::reload` signal, passing the lookup table as a parameter.
