@@ -12,17 +12,10 @@ Library to enable hot reloading colorscheme within AwesomeWM. Originally from [m
 
 2. Create a lookup table mapping your **old colors** to your **new colors**
 
-```
-local theme_lut = [
-  [beautiful.old_fg_color] = new_fg_color,
-  [beautiful.old_bg_color] = new_bg_color,
-]
-```
-
 It's easier to do this if you have a clean way to define your theme variables.
 
 ```lua
--- Here's the old theme...
+-- Here's the old theme variables...
 local mountain_theme = {
   red       = #c49ea0,
   green     = #89ab8a,
@@ -47,7 +40,7 @@ local mountain_theme = {
   neutral_7 = #191919,
 }
 
---- and here's the theme I want to apply.
+--- and here's the new theme variables.
 local nord_theme = {
   red       = #bf616a,
   green     = #a3be8c,
@@ -72,7 +65,7 @@ local nord_theme = {
   neutral_9 = #1f242f,
 }
 
--- Then you can just construct it like this.
+-- Then you can construct the LUT like this.
 local theme_lut = {
   mountain_theme.red       = nord_theme.red,
   mountain_theme.green     = nord_theme.green,
